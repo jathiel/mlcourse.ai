@@ -82,10 +82,10 @@ To solve this optimization problem, we need to calculate derivatives with respec
 <p>
 
 $$\large \begin{array}{rcl}
-\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} &=& \textbf{A} \\
-\frac{\partial}{\partial \textbf{X}} \textbf{X}^{\text{T}} \textbf{A} \textbf{X} &=& \left(\textbf{A} + \textbf{A}^{\text{T}}\right)\textbf{X} \\
-\frac{\partial}{\partial \textbf{A}} \textbf{X}^{\text{T}} \textbf{A} \textbf{y} &=&  \textbf{X}^{\text{T}} \textbf{y}\\
-\frac{\partial}{\partial \textbf{X}} \textbf{A}^{-1} &=& -\textbf{A}^{-1} \frac{\partial \textbf{A}}{\partial \textbf{X}} \textbf{A}^{-1}
+\frac{\partial}{\partial \textbf{x}} \textbf{A}\textbf{x} &=& \textbf{A} \\
+\frac{\partial}{\partial \textbf{x}} \textbf{x}^{\text{T}} \textbf{A} \textbf{x} &=& \textbf{x}^{\text{T}}\left(\textbf{A} + \textbf{A}^{\text{T}}\right) \\
+%\frac{\partial}{\partial \textbf{A}} \textbf{X}^{\text{T}} \textbf{A} \textbf{y} &=&  \textbf{X}^{\text{T}} \textbf{y}\\
+%\frac{\partial}{\partial x} \textbf{A}^{-1} &=& -\textbf{A}^{-1} \frac{\partial \textbf{A}}{\partial x} \textbf{A}^{-1}
 \end{array}$$
 
 </p>
@@ -95,12 +95,13 @@ $$\large \begin{array}{rcl}
 What we get is:
 
 $$\Large \begin{array}{rcl} \frac{\partial \mathcal{L}}{\partial \textbf{w}} &=& \frac{\partial}{\partial \textbf{w}} \frac{1}{2n} \left( \textbf{y}^{\text{T}} \textbf{y} -2\textbf{y}^{\text{T}} \textbf{X} \textbf{w} + \textbf{w}^{\text{T}} \textbf{X}^{\text{T}} \textbf{X} \textbf{w}\right) \\
-&=& \frac{1}{2n} \left(-2 \textbf{X}^{\text{T}} \textbf{y} + 2\textbf{X}^{\text{T}} \textbf{X} \textbf{w}\right)
+&=& \frac{1}{2n} \left(-2 \textbf{y}^{\text{T}} \textbf{X} + 2\textbf{w}^{\text{T}}\textbf{X}^{\text{T}} \textbf{X} \right)
 \end{array}$$
 
-$$\Large \begin{array}{rcl} \frac{\partial \mathcal{L}}{\partial \textbf{w}} = 0 &\Leftrightarrow& \frac{1}{2n} \left(-2 \textbf{X}^{\text{T}} \textbf{y} + 2\textbf{X}^{\text{T}} \textbf{X} \textbf{w}\right) = 0 \\
-&\Leftrightarrow& -\textbf{X}^{\text{T}} \textbf{y} + \textbf{X}^{\text{T}} \textbf{X} \textbf{w} = 0 \\
-&\Leftrightarrow& \textbf{X}^{\text{T}} \textbf{X} \textbf{w} = \textbf{X}^{\text{T}} \textbf{y} \\
+$$\Large \begin{array}{rcl} \frac{\partial \mathcal{L}}{\partial \textbf{w}} = 0 &\Leftrightarrow& \frac{1}{2n} \left(-2 \textbf{y}^{\text{T}} \textbf{X} + 2\textbf{w}^{\text{T}}\textbf{X}^{\text{T}} \textbf{X}\right) = 0 \\
+&\Leftrightarrow& -2 \textbf{y}^{\text{T}} \textbf{X} + 2\textbf{w}^{\text{T}}\textbf{X}^{\text{T}} \textbf{X} = 0 \\
+&\Leftrightarrow& \textbf{w}^{\text{T}}\textbf{X}^{\text{T}} \textbf{X}  = \textbf{y}^{\text{T}} \textbf{X} \\
+&\Leftrightarrow& \textbf{w}^{\text{T}} = \textbf{y}^{\text{T}} \textbf{X}\left(\textbf{X}^{\text{T}} \textbf{X}\right)^{-1}\\
 &\Leftrightarrow& \textbf{w} = \left(\textbf{X}^{\text{T}} \textbf{X}\right)^{-1} \textbf{X}^{\text{T}} \textbf{y}
 \end{array}$$
 
