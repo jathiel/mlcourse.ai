@@ -120,7 +120,7 @@ First, I would recommend looking at a classic, introductory problem in linear al
   <summary> Answer </summary>
 
 $$
-\rho(\textbf{x}_A, \textbf{w}^\text{T}\textbf{x} = 0) = \frac{\textbf{w}^\text{T}\textbf{x}_A}{||\textbf{w}||}
+\rho(\textbf{x}_A, \textbf{w}^\text{T}\textbf{x} = 0) = \frac{|\textbf{w}^\text{T}\textbf{x}_A|}{||\textbf{w}||}
 $$
 
 </details>
